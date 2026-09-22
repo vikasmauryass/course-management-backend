@@ -4,8 +4,8 @@
 import dns from "node:dns";
 dns.setServers(["8.8.8.8", "1.1.1.1"]);
 
-import connectDB from "../config/database.js";
 import app from "./app.js";
+import connectDB from "./config/database.js";
 
 const PORT = process.env.PORT || 5000;
 
