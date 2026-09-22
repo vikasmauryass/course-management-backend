@@ -16,6 +16,6 @@
 		"sourceMap": true,
 		"declaration": true
 	},
-	"include": ["src"],
+	"include": ["src", "src/server.ts"],
 	"exclude": ["node_modules", "dist"]
 }
