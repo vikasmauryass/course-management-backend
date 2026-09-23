@@ -12,32 +12,9 @@ const app = express();
 
 app.use(helmet());
 
-const allowedOrigins = ["http://localhost:3000", process.env.CLIENT_URL].filter(
-	Boolean,
-) as string[];
-
 app.use(
 	cors({
-		origin: (origin, callback) => {
-			if (!origin) {
-				return callback(null, true);
-			}
-
-			if (allowedOrigins.includes(origin)) {
-				return callback(null, true);
-			}
-
-			return callback(
-				new Error(`CORS blocked for origin: ${origin}`),
-				false,
-			);
-		},
-
-		methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
-
-		allowedHeaders: ["Content-Type", "Authorization"],
-
-		optionsSuccessStatus: 204,
+		origin: process.env.CLIENT_URL || "http://localhost:3000",
 	}),
 );
 
